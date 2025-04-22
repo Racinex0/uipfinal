@@ -146,12 +146,22 @@ const Index = () => {
               Programa una visita al campus o habla con un asesor académico para obtener más información sobre nuestros programas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-white text-uip-blue font-medium rounded-md hover:bg-gray-100 transition-colors">
+              <a
+                href="https://uip.edu.pa/admision/visita-uip/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-white text-uip-blue font-medium rounded-md hover:bg-gray-100 transition-colors"
+              >
                 Agendar una Visita
-              </button>
-              <button className="px-6 py-3 bg-uip-navy text-white font-medium rounded-md hover:bg-uip-navy/90 transition-colors">
+              </a>
+              <a
+                href="https://uip.edu.pa/contacto/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-uip-navy text-white font-medium rounded-md hover:bg-uip-navy/90 transition-colors"
+              >
                 Contactar a un Asesor
-              </button>
+              </a>
             </div>
           </div>
         </section>

@@ -17,22 +17,22 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="https://uip.edu.pa/admision/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
                   Admisiones
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="https://uip.edu.pa/carreras/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
                   Programas Académicos
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="https://campusvirtual.uip.edu.pa/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
                   Campus Virtual
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="https://biblioteca.uip.edu.pa/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
                   Biblioteca
                 </a>
               </li>
@@ -58,3 +58,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
