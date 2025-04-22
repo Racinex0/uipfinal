@@ -36,16 +36,16 @@ const Header: React.FC = () => {
           </div>
         </div>
         <nav className="hidden md:flex space-x-6">
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
+          <a href="https://uip.edu.pa/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
             Inicio
           </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
+          <a href="https://uip.edu.pa/carreras/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
             Carreras
           </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
+          <a href="https://uip.edu.pa/sobre-uip/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
             Sobre UIP
           </a>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
+          <a href="https://uip.edu.pa/contacto/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
             Contacto
           </a>
         </nav>

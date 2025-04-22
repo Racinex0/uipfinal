@@ -43,8 +43,8 @@ const Footer: React.FC = () => {
             <address className="text-sm text-gray-300 not-italic">
               <p>Avenida Ricardo J. Alfaro</p>
               <p>Ciudad de Panamá, Panamá</p>
-              <p className="mt-2">Teléfono: +507 2408-5100</p>
-              <p>Email: info@uip.edu.pa</p>
+              <p className="mt-2">Teléfono: <a href="tel:+5072408-5100" className="hover:text-white transition-colors">+507 2408-5100</a></p>
+              <p>Email: <a href="mailto:info@uip.edu.pa" className="hover:text-white transition-colors">info@uip.edu.pa</a></p>
             </address>
           </div>
         </div>
@@ -58,4 +58,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-

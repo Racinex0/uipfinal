@@ -12,17 +12,31 @@ interface ResultCardProps {
 }
 
 const getCareerLink = (careerName: string) => {
-  // Simplify carreras to URL slugs (naive approach, ideally would match official URLs)
-  const slug = careerName
-    .toLowerCase()
-    .replace(/[áäàâã]/g,"a")
-    .replace(/[éëèê]/g,"e")
-    .replace(/[íïìî]/g,"i")
-    .replace(/[óöòôõ]/g,"o")
-    .replace(/[úüùû]/g,"u")
-    .replace(/[^a-z0-9]+/g,'-')
-    .replace(/^-+|-+$/g,'')
-    .replace(/-+/g,'-');
+  // Map specific career names to their correct URLs on the UIP website
+  const careerUrlMap: Record<string, string> = {
+    "Licenciatura en Administración de Empresas": "administracion-de-empresas",
+    "Licenciatura en Contabilidad": "contabilidad",
+    "Licenciatura en Mercadeo y Publicidad": "mercadeo-y-publicidad",
+    "Licenciatura en Hotelería y Turismo": "hoteleria-y-turismo",
+    "Licenciatura en Enfermería": "enfermeria",
+    "Licenciatura en Derecho y Ciencias Políticas": "derecho-y-ciencias-politicas",
+    "Ingeniería en Sistemas Computacionales": "ingenieria-en-sistemas-computacionales",
+    "Licenciatura en Psicología": "psicologia",
+    "Licenciatura en Relaciones Públicas": "relaciones-publicas",
+    "Licenciatura en Comunicación y Periodismo": "comunicacion-y-periodismo",
+    "Licenciatura en Diseño Gráfico": "diseno-grafico",
+    "Licenciatura en Ciencias de la Educación": "ciencias-de-la-educacion",
+    "Licenciatura en Gestión Bancaria y Financiera": "gestion-bancaria-y-financiera",
+    "Ingeniería Industrial": "ingenieria-industrial",
+    "Licenciatura en Comercio Internacional": "comercio-internacional",
+    "Ingeniería de Sistemas": "ingenieria-de-sistemas",
+    "Licenciatura en Recursos Humanos": "recursos-humanos",
+    "Licenciatura en Gastronomía": "gastronomia",
+    "Licenciatura en Seguridad Ocupacional": "seguridad-ocupacional"
+  };
+
+  // Use the mapped URL if it exists, otherwise fall back to the default URL
+  const slug = careerUrlMap[careerName] || "carreras";
   return `https://uip.edu.pa/carreras/${slug}/`;
 };
 
@@ -90,4 +104,3 @@ const ResultCard: React.FC<ResultCardProps> = ({ recommendation, index }) => {
 };
 
 export default ResultCard;
-
