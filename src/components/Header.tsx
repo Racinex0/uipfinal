@@ -31,7 +31,7 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-2">
           <GraduationCap className="h-8 w-8 text-uip-blue" />
           <div>
-            <h1 className="text-xl font-bold text-uip-blue">UIP Career Navigator</h1>
+            <h1 className="text-xl font-bold text-uip-blue">UIP</h1>
             <p className="text-xs text-gray-600">Universidad Interamericana de Panamá</p>
           </div>
         </div>
