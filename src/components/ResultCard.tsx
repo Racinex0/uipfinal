@@ -5,47 +5,22 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ExternalLink } from 'lucide-react';
 import { CareerRecommendation } from '@/types';
+import { carreras } from '@/lib/carreras';
 
 interface ResultCardProps {
   recommendation: CareerRecommendation;
   index: number;
 }
 
+// Busca la URL oficial de la carrera, si no la encuentra, enlaza a todas las carreras
 const getCareerLink = (careerName: string) => {
-  // Map specific career names to their correct URLs on the UIP website
-  const careerUrlMap: Record<string, string> = {
-    "Licenciatura en Administración de Empresas": "administracion-de-empresas",
-    "Licenciatura en Contabilidad": "contabilidad", 
-    "Licenciatura en Mercadeo y Publicidad": "mercadeo-y-publicidad",
-    "Licenciatura en Hotelería y Turismo": "hoteleria-y-turismo", 
-    "Licenciatura en Enfermería": "enfermeria",
-    "Licenciatura en Derecho y Ciencias Políticas": "derecho-y-ciencias-politicas",
-    "Ingeniería en Sistemas Computacionales": "ingenieria-en-sistemas-computacionales",
-    "Licenciatura en Psicología": "psicologia",
-    "Licenciatura en Relaciones Públicas": "relaciones-publicas",
-    "Licenciatura en Comunicación y Periodismo": "comunicacion-y-periodismo",
-    "Licenciatura en Diseño Gráfico": "diseno-grafico",
-    "Licenciatura en Ciencias de la Educación": "ciencias-de-la-educacion",
-    "Licenciatura en Gestión Bancaria y Financiera": "gestion-bancaria-y-financiera",
-    "Ingeniería Industrial": "ingenieria-industrial",
-    "Licenciatura en Comercio Internacional": "comercio-internacional",
-    "Ingeniería de Sistemas": "ingenieria-de-sistemas",
-    "Licenciatura en Recursos Humanos": "recursos-humanos",
-    "Licenciatura en Gastronomía": "gastronomia",
-    "Licenciatura en Seguridad Ocupacional": "seguridad-ocupacional",
-    "Programa de Orientación Vocacional Personalizado": "admisiones"
-  };
-
-  // Use the mapped URL if it exists, otherwise fall back to the default URL
-  const slug = careerUrlMap[careerName] || "carreras";
-  return `https://uip.edu.pa/carreras/${slug}/`;
+  const found = carreras.find(c => c.nombre === careerName);
+  return found?.url || "https://uip.edu.pa/carreras/";
 };
 
 const ResultCard: React.FC<ResultCardProps> = ({ recommendation, index }) => {
   const { name, description, reasons, match } = recommendation;
   const isTopMatch = index === 0;
-  
-  // For the apply link, use the admissions page for all careers
   const applyLink = "https://uip.edu.pa/admisiones/";
 
   return (

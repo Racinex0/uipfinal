@@ -1,6 +1,15 @@
 
 import React from 'react';
 
+const quickLinks = [
+  { label: "Admisiones", url: "https://uip.edu.pa/admisiones/" },
+  { label: "Programas Académicos", url: "https://uip.edu.pa/carreras/" },
+  { label: "Campus Virtual", url: "https://campusvirtual.uip.edu.pa/" },
+  { label: "Biblioteca", url: "https://biblioteca.uip.edu.pa/" },
+  { label: "Becas", url: "https://uip.edu.pa/becas/" },
+  { label: "Vida Universitaria", url: "https://uip.edu.pa/vida-universitaria/" },
+];
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-uip-navy text-white py-8 mt-12">
@@ -16,26 +25,18 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="https://uip.edu.pa/admisiones/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Admisiones
-                </a>
-              </li>
-              <li>
-                <a href="https://uip.edu.pa/carreras/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Programas Académicos
-                </a>
-              </li>
-              <li>
-                <a href="https://uip.edu.pa/campus-virtual/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Campus Virtual
-                </a>
-              </li>
-              <li>
-                <a href="https://uip.edu.pa/biblioteca/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Biblioteca
-                </a>
-              </li>
+              {quickLinks.map(link => (
+                <li key={link.label}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

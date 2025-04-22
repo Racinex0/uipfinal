@@ -1,27 +1,13 @@
 
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
+import { carreras } from '@/lib/carreras';
 
-const carreras = [
-  "Licenciatura en Administración de Empresas",
-  "Licenciatura en Contabilidad", 
-  "Licenciatura en Mercadeo y Publicidad",
-  "Licenciatura en Hotelería y Turismo", 
-  "Licenciatura en Enfermería",
-  "Licenciatura en Derecho y Ciencias Políticas",
-  "Ingeniería en Sistemas Computacionales",
-  "Licenciatura en Psicología",
-  "Licenciatura en Relaciones Públicas",
-  "Licenciatura en Comunicación y Periodismo",
-  "Licenciatura en Diseño Gráfico",
-  "Licenciatura en Ciencias de la Educación",
-  "Licenciatura en Gestión Bancaria y Financiera",
-  "Ingeniería Industrial",
-  "Licenciatura en Comercio Internacional",
-  "Ingeniería de Sistemas",
-  "Licenciatura en Recursos Humanos",
-  "Licenciatura en Gastronomía",
-  "Licenciatura en Seguridad Ocupacional"
+const navLinks = [
+  { label: "Inicio", url: "https://uip.edu.pa/" },
+  { label: "Carreras", url: "https://uip.edu.pa/carreras/" },
+  { label: "Sobre UIP", url: "https://uip.edu.pa/sobre-nosotros/" },
+  { label: "Contacto", url: "https://uip.edu.pa/contacto/" },
 ];
 
 const Header: React.FC = () => {
@@ -38,18 +24,51 @@ const Header: React.FC = () => {
           </a>
         </div>
         <nav className="hidden md:flex space-x-6">
-          <a href="https://uip.edu.pa/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
-            Inicio
-          </a>
-          <a href="https://uip.edu.pa/carreras/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
-            Carreras
-          </a>
-          <a href="https://uip.edu.pa/sobre-nosotros/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
-            Sobre UIP
-          </a>
-          <a href="https://uip.edu.pa/contacto/" className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors">
-            Contacto
-          </a>
+          {navLinks.map((link) => (
+            <a 
+              key={link.label}
+              href={link.url}
+              className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+          {/* Menú desplegable de carreras (muestra hasta 4, el resto en "Ver más...") */}
+          <div className="relative group">
+            <button className="text-sm font-medium text-gray-700 hover:text-uip-blue transition-colors focus:outline-none">
+              Carreras Ideales
+            </button>
+            <div className="absolute z-50 left-0 mt-2 bg-white border rounded-md shadow-lg min-w-[16rem] opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-150">
+              <ul className="py-2">
+                {carreras.slice(0, 6).map((carrera) => (
+                  <li key={carrera.nombre}>
+                    <a 
+                      href={carrera.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-2 text-gray-700 hover:bg-uip-blue/10 hover:text-uip-blue text-sm"
+                    >
+                      {carrera.nombre}
+                    </a>
+                  </li>
+                ))}
+                {carreras.length > 6 && (
+                  <li>
+                    <a 
+                      href="https://uip.edu.pa/carreras/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="block px-4 py-2 text-gray-700 font-semibold hover:bg-uip-blue/20 text-center"
+                    >
+                      Ver todas las carreras...
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
