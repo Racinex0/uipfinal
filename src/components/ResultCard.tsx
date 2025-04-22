@@ -15,9 +15,9 @@ const getCareerLink = (careerName: string) => {
   // Map specific career names to their correct URLs on the UIP website
   const careerUrlMap: Record<string, string> = {
     "Licenciatura en Administración de Empresas": "administracion-de-empresas",
-    "Licenciatura en Contabilidad": "contabilidad",
+    "Licenciatura en Contabilidad": "contabilidad", 
     "Licenciatura en Mercadeo y Publicidad": "mercadeo-y-publicidad",
-    "Licenciatura en Hotelería y Turismo": "hoteleria-y-turismo",
+    "Licenciatura en Hotelería y Turismo": "hoteleria-y-turismo", 
     "Licenciatura en Enfermería": "enfermeria",
     "Licenciatura en Derecho y Ciencias Políticas": "derecho-y-ciencias-politicas",
     "Ingeniería en Sistemas Computacionales": "ingenieria-en-sistemas-computacionales",
@@ -32,7 +32,8 @@ const getCareerLink = (careerName: string) => {
     "Ingeniería de Sistemas": "ingenieria-de-sistemas",
     "Licenciatura en Recursos Humanos": "recursos-humanos",
     "Licenciatura en Gastronomía": "gastronomia",
-    "Licenciatura en Seguridad Ocupacional": "seguridad-ocupacional"
+    "Licenciatura en Seguridad Ocupacional": "seguridad-ocupacional",
+    "Programa de Orientación Vocacional Personalizado": "admisiones"
   };
 
   // Use the mapped URL if it exists, otherwise fall back to the default URL
@@ -43,6 +44,9 @@ const getCareerLink = (careerName: string) => {
 const ResultCard: React.FC<ResultCardProps> = ({ recommendation, index }) => {
   const { name, description, reasons, match } = recommendation;
   const isTopMatch = index === 0;
+  
+  // For the apply link, use the admissions page for all careers
+  const applyLink = "https://uip.edu.pa/admisiones/";
 
   return (
     <Card className={`w-full overflow-hidden card-shadow ${isTopMatch ? 'border-uip-blue border-2' : ''}`}>
@@ -88,7 +92,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ recommendation, index }) => {
           </Button>
         </a>
         <a
-          href="https://uip.edu.pa/admision/"
+          href={applyLink}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 ml-2"
